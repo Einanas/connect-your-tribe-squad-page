@@ -3,8 +3,19 @@
 <h2>Students</h2>
 <ul>
   <% persons.forEach(person => { %>
-    <li><a href="./person/<%= person.id %>"><%= person.name %></a>, squad_id <%= person.squad_id %></li>
+    <li><a href="./person/<%= person.id %>"><%= person.name %></a>, squad_id <%= person.avatar %></li>
   <% }) %>
 </ul>
 
 <%- include('./partials/foot') %>
+
+<li>
+  <section class="Inez">
+    <h1><%= person.name %></h1>
+    <img src="<%= person.avatar %>" alt="">
+    <p><%= person.bio %></p>
+  </section>
+</li>
+
+</body>
+</html>
