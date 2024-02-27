@@ -1,6 +1,6 @@
 <%- include('./partials/head') %>
 
-<h2>Students</h2>
+<!-- <h2>Students</h2>
 <ul>
   <% persons.forEach(person => { %>
     <li>
@@ -11,17 +11,72 @@
       </section>
     </li>
   <% }) %>
+</ul> -->
+
+<!-- <section class="filter-menu">
+  <button class="filter-btn" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="amsterdam">Amsterdam</button>
+  <button class="filter-btn" data-filter="utrecht">utrecht</button>
+      Add more buttons for other cities as needed 
+</section> -->
+
+<!-- <article class="squad-container"> -->
+  <!-- Place your squad members' cards here -->
+  <!-- <div class="squad-member amsterdam">John Doe </div> -->
+  <!-- <div class="squad-member utrecht">Jane Smith </div> -->
+  <!-- Add more squad member cards with appropriate city classes -->
+<!-- </article> -->
+
+<!-- <script src="script.js">
+  document.addEventListener("DOMContentLoaded", function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const squadMembers = document.querySelectorAll('.squad-member');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filterValue = button.getAttribute('data-filter');
+
+            squadMembers.forEach(member => {
+                if (filterValue === 'all' || member.classList.contains(filterValue)) {
+                    member.style.display = 'block';
+                } else {
+                    member.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script> -->
+
+<h2>ChatBox</h2>
+<ul required name="POST">
+  <% messages.forEach(message => { %>
+  <li><%= message %></li>
+  <% }) %>
 </ul>
+
+<form method="POST" action="/">
+  <label>
+    Berichtje:
+    <textarea required name="bericht"></textarea>
+  </label>
+  <button type="submit">Verstuur bericht</button>
+</form>
+
+<form method="POST" action="/detail/<%= person.id %>/like-or-unlike">
+  <% if (person.custom.like) { %>
+  <button type="submit" name="actie" value="niet-zo-leuk-sorry">Unlike</button>
+  <% } else { %>
+  <button type="submit" name="actie" value="leuk-hoor">Like!</button>
+  <% } %>
+</form>
+
+
+<!-- ctrl c to stop the npm -->
 
 <%- include('./partials/foot') %>
 
-<li>
-  <section class="name of person">
-    <h1><%= person.name %></h1>
-    <img src="<%= person.avatar %>" alt="avatar van een student">
-    <p><%= person.bio %></p>
-  </section>
-</li>
+
 
 </body>
 </html>
